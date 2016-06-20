@@ -1,0 +1,2 @@
+#---Permet de ne pas lister le contenu du repertoire---
+IndexIgnore *

@@ -1,0 +1,37 @@
+/*-----------------*\
+	CHECK PSEUDO
+\*-----------------*/
+.success-check {
+  padding-left: 0px;
+  line-height: 34px;
+}
+
+/*-----------------*\
+	CHECK PSEUDO
+\*-----------------*/
+.error-check {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding: 10px;
+}
+
+/*-----------------*\
+	 FORMULAIRES
+\*-----------------*/
+.form-padding {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.form-margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container-fluid form {
+  box-shadow: 0px 0px 12px #000;
+}
+
+.login {
+  width: 100%;
+}
