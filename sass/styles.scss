@@ -1,6 +1,10 @@
+@import 'loading.scss';
 @import 'success.scss';
 @import 'error.scss';
 @import 'form.scss';
+body {
+	position: relative;
+}	
 .login {
 
 	width: 100%;

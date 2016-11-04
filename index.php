@@ -18,6 +18,8 @@
 		<script type="text/javascript" src="js/app.js"></script>
 	</head>
 <body>
+	<div id="loading"></div>
+	<img id="loadingImg" src="images/loading.svg" alt="image de chargement page">
 	<div class="container-fluid">
 		<form id="form_register" class="form-padding form-margin col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
 			<div class="row">

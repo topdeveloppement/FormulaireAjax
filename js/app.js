@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 		if($(this).val() == ''){// si le champs et vide on supprime l'icone success et le message d'erreur
 			$("#output_checkname").html('').removeClass('alert alert-danger error-check').removeAttr('class');
 			$("#success-check-name").html('');
-		}else if($(this).val().match(/[0-9]/g)){ // on verifie que le champs ne contient pas de caractere alphanumerique
+		}else if($(this).val().match(/[^a-zA-Z -\s\w]/g)){ // on verifie que le champs ne contient pas de caractere alphanumerique
 			$("#output_checkname").html('Le nom doit comporter que des caractéres').addClass('alert alert-danger error-check');
 			$("#success-check-name").html('');
 		}else{// si toute et ok on affiche un 
@@ -24,7 +24,7 @@ jQuery(document).ready(function() {
 		if($(this).val() == ''){// si le champs et vide on supprime l'icone success et le message d'erreur
 			$("#output_checklastname").html('').removeClass('alert alert-danger error-check').removeAttr('class');
 			$("#success-check-lastname").html('');
-		}else if($(this).val().match(/[0-9]/g)){
+		}else if($(this).val().match(/[^a-zA-Z\s]/g)){
 			$("#output_checklastname").html('Le prénom doit être que des caractéres').addClass('alert alert-danger error-check');
 			$("#success-check-lastname").html('');
 		}else{
@@ -134,7 +134,7 @@ jQuery(document).ready(function() {
 		});
 	}
 	//traitement du formulaire d'inscription
-	$("#form_register").on('submit', function(e) {
+	$("#form_register").submit(function(e) {
         e.preventDefault();
 		var status = $("#status");
 		var name = $("#name").val();
@@ -158,20 +158,24 @@ jQuery(document).ready(function() {
 				'password_second': password_second,
 			},
 			beforeSend: function(){ // Avant d'envoyer la requete
-				$("#loadRegister").attr("value", "Traitement en cours .....");
+				$('#loading').css('display', 'block');
+				$('#loadingImg').css('display', 'block');
 			},
 			success: function (data){
 				if(data == 'success'){
 
-				setInterval(function(){ $("#loadRegister").attr("value", "S'inscrire"); },1000);	
-
-				$("#name").val('');
+				setTimeout(function(){ 
+					$('#loading').css('display', 'none');
+					$('#loadingImg').css('display', 'none');
+				},1000);	
+				$("#form_register").trigger('reset'); // fonction qui permet de vider tous les champs du formulaire avec en parametre 'reset'
+				/*$("#name").val('');
 				$("#lastname").val('');
 				$("#username").val('');
 				$("#birthday").val('');
 				$("#email").val('');
  				$("#password-first").val('');
-				$("#password-second").val('');
+				$("#password-second").val('');*/
 				$("#success-check-name").html('');
 				$("#success-check-lastname").html('');
 				$("#success-check-pseudo").html('');
@@ -180,7 +184,6 @@ jQuery(document).ready(function() {
 				$("#success-check-password-first").html('');
 				$("#success-check-password-second").html('');
 				
-
 				}else{
 					status.html(data).slideDown(600);
 					$("#loadRegister").attr("value", "S'inscrire");

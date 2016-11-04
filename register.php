@@ -1,6 +1,6 @@
 <?php 
 //Traitement de l'inscription
-if(isset($_POST) && !empty($_POST)){
+if(isset($_POST) && !empty($_POST)){// on verifie que la variable $_POST existe et ne soit pas vide
 
 	require "connect_db.php"; // j'inclus le fichier qui me permet de me connecter a la base de donnée 
 

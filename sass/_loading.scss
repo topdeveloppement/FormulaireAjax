@@ -1,0 +1,23 @@
+/*-----------------*\
+	   LOADING
+\*-----------------*/
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+  background-color: #FFFFFF;
+  opacity: 0.6;
+  display: none;
+}
+#loadingImg {
+  position: fixed;
+  top: 44%;
+  left: 44%;
+  width: 12%;
+  height: 12%;
+  z-index: 999;
+  display: none;
+}
