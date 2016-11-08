@@ -1,7 +1,7 @@
 /* 
 **Attente du chargement de la page
 */
-jQuery(document).ready(function() {
+$(document).ready(function() {
 	 
 	$("#form_register input").focus(function() {
 		$("#status").slideUp(600);
